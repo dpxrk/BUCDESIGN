@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Buccellati Design System — "B" Monogram
+  A discreet footer mark for content slides (the full wordmark is reserved for
+  Cover / Section / Closing only). Drawn as an inscriptional capital with subtle
+  contrast, in the spirit of the Maison's bespoke Typotheque face.
+  Placeholder mark — replace with official asset where available.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 48" role="img" aria-label="Buccellati B monogram">
+  <title>B Monogram</title>
+  <g fill="#1A1A1A">
+    <path d="M 8 6
+             L 22 6
+             C 30 6 33 10.5 33 15.5
+             C 33 19.5 30.5 22 27 23
+             C 31.5 23.8 35 26.5 35 31.5
+             C 35 37.2 31 42 22 42
+             L 8 42
+             Z
+             M 14 9.5
+             L 14 22
+             L 21.5 22
+             C 26 22 28 19 28 15.5
+             C 28 12 26 9.5 21.5 9.5
+             Z
+             M 14 25.5
+             L 14 38.5
+             L 22 38.5
+             C 27 38.5 30 36 30 32
+             C 30 27.5 27 25.5 22 25.5
+             Z" fill-rule="evenodd"/>
+    <!-- Hairline tick beneath: the "since 1919" footing -->
+    <rect x="6" y="44.5" width="28" height="0.4" fill="#A8894E"/>
+  </g>
+</svg>

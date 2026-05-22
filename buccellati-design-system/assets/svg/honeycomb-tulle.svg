@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Buccellati Design System — Honeycomb / Tulle Ornament
+  The Maison's most identifiable motif, drawn from the tulle (honeycomb)
+  piercing technique. Outline only, never filled. Use sparingly: once per
+  section, max. Stroke color: Oro Antico #A8894E.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Buccellati tulle (honeycomb) ornament">
+  <title>Tulle (Honeycomb) Ornament</title>
+  <g fill="none" stroke="#A8894E" stroke-width="0.6" stroke-linejoin="round" stroke-linecap="round">
+    <polygon points="60.000,40.000 77.321,50.000 77.321,70.000 60.000,80.000 42.679,70.000 42.679,50.000"/>
+    <polygon points="94.641,40.000 111.962,50.000 111.962,70.000 94.641,80.000 77.321,70.000 77.321,50.000"/>
+    <polygon points="77.321,70.000 94.641,80.000 94.641,100.000 77.321,110.000 60.000,100.000 60.000,80.000"/>
+    <polygon points="42.679,70.000 60.000,80.000 60.000,100.000 42.679,110.000 25.359,100.000 25.359,80.000"/>
+    <polygon points="25.359,40.000 42.679,50.000 42.679,70.000 25.359,80.000 8.038,70.000 8.038,50.000"/>
+    <polygon points="42.679,10.000 60.000,20.000 60.000,40.000 42.679,50.000 25.359,40.000 25.359,20.000"/>
+    <polygon points="77.321,10.000 94.641,20.000 94.641,40.000 77.321,50.000 60.000,40.000 60.000,20.000"/>
+  </g>
+</svg>

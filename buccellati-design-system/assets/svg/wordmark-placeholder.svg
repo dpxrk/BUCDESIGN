@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Buccellati Design System — Wordmark Placeholder
+  This is a TYPOGRAPHIC PLACEHOLDER ONLY. The production system must use the
+  official Typotheque-bespoke Buccellati wordmark (SVG/PNG from the Maison's
+  asset library). Do not ship this file in client-facing decks.
+  Set in widely-tracked inscriptional capitals as a visual stand-in.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 60" role="img" aria-label="BUCCELLATI wordmark placeholder">
+  <title>BUCCELLATI (placeholder wordmark)</title>
+  <text x="240" y="42"
+        font-family="Trajan Pro, Cormorant Garamond, Garamond, Georgia, serif"
+        font-size="36"
+        font-weight="300"
+        letter-spacing="14"
+        text-anchor="middle"
+        fill="currentColor">BUCCELLATI</text>
+</svg>

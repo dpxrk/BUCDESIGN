@@ -1,0 +1,96 @@
+/* ──────────────────────────────────────────────────────────────────────────
+   Buccellati Executive Presentation Design System
+   variables.css — flat CSS custom properties derived from tokens.json
+   ────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ─── Color · Primary ─────────────────────────────────────────────────── */
+  --bcl-avorio:            #F5F1EA;   /* Ivory — default background      */
+  --bcl-nero-inchiostro:   #1A1A1A;   /* Ink Black — primary text        */
+  --bcl-pergamena:         #EAE2D2;   /* Parchment — section background  */
+
+  /* ─── Color · Accent ──────────────────────────────────────────────────── */
+  --bcl-blu-buccellati:    #1B2A4E;   /* Box Blue                        */
+  --bcl-oro-antico:        #A8894E;   /* Antique Gold                    */
+  --bcl-oro-chiaro:        #C9A961;   /* Light Gold                      */
+
+  /* ─── Color · Neutral ─────────────────────────────────────────────────── */
+  --bcl-grafite:           #4A4A48;   /* Graphite                        */
+  --bcl-cenere:            #8A8A86;   /* Ash                             */
+  --bcl-lino:              #D9D2C3;   /* Linen                           */
+  --bcl-polvere:           #BFB8A8;   /* Dust                            */
+  --bcl-blu-polvere:       #7A8BA8;   /* Powder Blue                     */
+
+  /* ─── Color · Chart series (USE IN ORDER) ─────────────────────────────── */
+  --bcl-chart-1: var(--bcl-blu-buccellati);
+  --bcl-chart-2: var(--bcl-oro-antico);
+  --bcl-chart-3: var(--bcl-grafite);
+  --bcl-chart-4: var(--bcl-cenere);
+  --bcl-chart-5: var(--bcl-oro-chiaro);
+  --bcl-chart-6: var(--bcl-blu-polvere);
+
+  /* ─── Typography · Family ─────────────────────────────────────────────── */
+  --bcl-ff-display: "Trajan Pro", "Cormorant Garamond", Garamond, Georgia, serif;
+  --bcl-ff-heading: "Cormorant Garamond", Garamond, "Adobe Garamond Pro", Georgia, serif;
+  --bcl-ff-body:    Optima, "Gill Sans MT", "Gill Sans", "Calibri Light", sans-serif;
+  --bcl-ff-data:    Georgia, "Cormorant Infant", serif;
+
+  /* ─── Typography · Size (rem-friendly; 1rem = 16px) ───────────────────── */
+  --bcl-fs-display:     4.5rem;   /* 54pt ≈ 72px @ 96dpi (rounded)        */
+  --bcl-fs-h1-section:  3.333rem; /* 40pt                                  */
+  --bcl-fs-h2-slide:    2.333rem; /* 28pt                                  */
+  --bcl-fs-eyebrow:     0.75rem;  /* 9pt                                   */
+  --bcl-fs-body-l:      1.333rem; /* 16pt                                  */
+  --bcl-fs-body:        1.167rem; /* 14pt                                  */
+  --bcl-fs-body-s:      1rem;     /* 12pt                                  */
+  --bcl-fs-caption:     0.75rem;  /* 9pt                                   */
+  --bcl-fs-kpi:         6rem;     /* 72pt                                  */
+
+  /* ─── Typography · Weight ─────────────────────────────────────────────── */
+  --bcl-fw-light:    300;
+  --bcl-fw-regular:  400;
+  --bcl-fw-medium:   500;
+  --bcl-fw-bold:     700;
+
+  /* ─── Typography · Line height ────────────────────────────────────────── */
+  --bcl-lh-tight:    1.10;
+  --bcl-lh-display:  1.15;
+  --bcl-lh-snug:     1.20;
+  --bcl-lh-caption:  1.30;
+  --bcl-lh-body:     1.40;
+
+  /* ─── Typography · Letter spacing ─────────────────────────────────────── */
+  --bcl-ls-eyebrow:  0.20em;
+  --bcl-ls-display:  0.12em;
+  --bcl-ls-section:  0.06em;
+  --bcl-ls-title:    0.04em;
+  --bcl-ls-caption:  0.02em;
+
+  /* ─── Layout · Canvas (16:9 slide) ────────────────────────────────────── */
+  --bcl-slide-w:     13.333in;
+  --bcl-slide-h:     7.5in;
+  --bcl-margin:      0.6in;
+  --bcl-col-w:       0.94in;
+  --bcl-gutter:      0.18in;
+  --bcl-live-w:      12.133in;
+  --bcl-live-h:      6.3in;
+
+  /* ─── Stroke ──────────────────────────────────────────────────────────── */
+  --bcl-stroke-hairline: 0.5pt;
+  --bcl-stroke-rule:     1pt;
+  --bcl-stroke-icon:     1.5pt;
+
+  /* ─── Semantic aliases (theme-readable) ───────────────────────────────── */
+  --bcl-bg:              var(--bcl-avorio);
+  --bcl-bg-alt:          var(--bcl-pergamena);
+  --bcl-bg-dark:         var(--bcl-blu-buccellati);
+  --bcl-text:            var(--bcl-nero-inchiostro);
+  --bcl-text-on-dark:    var(--bcl-avorio);
+  --bcl-text-muted:      var(--bcl-grafite);
+  --bcl-text-tertiary:   var(--bcl-cenere);
+  --bcl-accent:          var(--bcl-oro-antico);
+  --bcl-accent-soft:     var(--bcl-oro-chiaro);
+  --bcl-rule:            var(--bcl-oro-antico);
+  --bcl-positive:        var(--bcl-oro-antico);
+  --bcl-negative:        var(--bcl-grafite);
+}

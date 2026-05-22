@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Buccellati Design System — "Since 1919" Lockup
+  Use ONLY on cover and closing slides. Never on every content slide.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 24" role="img" aria-label="Since 1919">
+  <title>Since 1919</title>
+  <g fill="currentColor">
+    <line x1="0" y1="12" x2="50" y2="12" stroke="currentColor" stroke-width="0.4"/>
+    <text x="100" y="16"
+          font-family="Cormorant Garamond, Garamond, Georgia, serif"
+          font-style="italic"
+          font-size="14"
+          font-weight="300"
+          letter-spacing="2"
+          text-anchor="middle">Since 1919</text>
+    <line x1="150" y1="12" x2="200" y2="12" stroke="currentColor" stroke-width="0.4"/>
+  </g>
+</svg>

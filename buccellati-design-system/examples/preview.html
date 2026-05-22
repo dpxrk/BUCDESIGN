@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buccellati Executive Presentation Design System — Preview</title>
+<link rel="stylesheet" href="../css/buccellati.css">
+<style>
+  /* Page-level scaffolding for the preview itself. The slide examples
+     below use the official css/buccellati.css system. */
+  body {
+    background: var(--bcl-avorio);
+    color: var(--bcl-text);
+    font-family: var(--bcl-ff-body);
+    padding: 4rem 2rem 6rem;
+  }
+  .wrap { max-width: 78rem; margin: 0 auto; }
+
+  .meta-eyebrow {
+    font-family: var(--bcl-ff-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--bcl-oro-antico);
+    margin: 0 0 1rem;
+  }
+  .meta-title {
+    font-family: var(--bcl-ff-heading);
+    font-weight: 300;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+    margin: 0 0 1rem;
+  }
+  .meta-subtitle {
+    font-family: var(--bcl-ff-heading);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--bcl-text-muted);
+    font-size: 1.25rem;
+    line-height: 1.4;
+    margin: 0 0 3rem;
+    max-width: 38rem;
+  }
+  .meta-rule {
+    border: 0;
+    height: 1px;
+    background: var(--bcl-oro-antico);
+    width: 4rem;
+    margin: 2.5rem 0;
+  }
+
+  .section-label {
+    font-family: var(--bcl-ff-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--bcl-oro-antico);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 5rem 0 1.5rem;
+  }
+  .section-label::before {
+    content: "";
+    width: 2rem;
+    height: 1px;
+    background: var(--bcl-oro-antico);
+  }
+  .section-h {
+    font-family: var(--bcl-ff-heading);
+    font-weight: 300;
+    font-size: 2rem;
+    letter-spacing: 0.02em;
+    margin: 0 0 0.5rem;
+  }
+  .section-desc {
+    color: var(--bcl-text-muted);
+    max-width: 42rem;
+    margin: 0 0 2.5rem;
+    font-style: italic;
+  }
+
+  /* Slide thumbnails — scaled-down 16:9 cards */
+  .slide-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--bcl-avorio);
+    border: 1px solid rgba(26,26,26,0.08);
+    overflow: hidden;
+    position: relative;
+    container-type: inline-size;
+  }
+  .slide-thumb__caption {
+    margin-top: 0.75rem;
+    font-size: 0.8125rem;
+    color: var(--bcl-text-muted);
+    letter-spacing: 0.02em;
+  }
+  .slide-thumb__caption strong {
+    color: var(--bcl-text);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    margin-right: 0.5rem;
+  }
+
+  /* Use container queries so the slide content scales proportionally */
+  .slide-thumb__inner {
+    position: absolute;
+    inset: 0;
+    /* Slide is conceptually 13.333" wide; scale to container */
+    font-size: clamp(0.4rem, 1.8cqi, 1rem);
+    padding: 4cqi;
+  }
+  .slide-thumb__inner * { letter-spacing: 0.02em; }
+
+  .thumb-eyebrow {
+    font-size: 1.1em;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bcl-oro-antico);
+    margin: 0 0 1cqi;
+  }
+  .thumb-title {
+    font-family: var(--bcl-ff-heading);
+    font-weight: 400;
+    font-size: 3.5em;
+    line-height: 1.15;
+    margin: 0 0 1.5cqi;
+    color: var(--bcl-text);
+    letter-spacing: 0.02em;
+  }
+  .thumb-rule {
+    width: 12cqi;
+    height: 1px;
+    background: var(--bcl-oro-antico);
+    margin: 1cqi 0 3cqi;
+    border: 0;
+  }
+  .thumb-body {
+    font-size: 1.65em;
+    line-height: 1.5;
+    color: var(--bcl-text);
+    max-width: 70%;
+  }
+  .thumb-footer {
+    position: absolute;
+    bottom: 3cqi; left: 4cqi; right: 4cqi;
+    display: flex; justify-content: space-between;
+    font-size: 1.05em;
+    color: var(--bcl-cenere);
+    letter-spacing: 0.05em;
+  }
+
+  /* Variants per layout */
+  .thumb--cover, .thumb--closing {
+    background: var(--bcl-blu-buccellati);
+    color: var(--bcl-text-on-dark);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+  }
+  .thumb--cover .wordmark, .thumb--closing .wordmark {
+    font-family: var(--bcl-ff-heading);
+    font-size: 3em;
+    font-weight: 300;
+    letter-spacing: 0.8em;
+    text-indent: 0.8em;          /* offset the trailing letter-spacing */
+    color: var(--bcl-text-on-dark);
+    margin: 0 0 2cqi;
+  }
+  .thumb--cover .cover-title {
+    font-family: var(--bcl-ff-heading);
+    font-weight: 300;
+    font-size: 4.2em;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    color: var(--bcl-text-on-dark);
+    margin: 1cqi 6cqi;
+    max-width: 76%;
+  }
+  .thumb--cover .cover-sub {
+    font-family: var(--bcl-ff-body);
+    font-size: 1.4em;
+    color: var(--bcl-oro-chiaro);
+    letter-spacing: 0.12em;
+    margin: 2cqi 0 0.5cqi;
+  }
+  .thumb--cover .cover-date {
+    font-size: 1em;
+    color: var(--bcl-cenere);
+    margin-top: 2cqi;
+  }
+  .thumb--cover hr, .thumb--closing hr {
+    border: 0; height: 1px;
+    background: var(--bcl-oro-antico);
+    width: 15cqi;
+    margin-top: 3cqi;
+  }
+  .thumb--closing .grazie {
+    font-family: var(--bcl-ff-heading);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 4em;
+    color: var(--bcl-oro-chiaro);
+    margin: 2cqi 0 0;
+  }
+
+  .thumb--section { background: var(--bcl-pergamena); }
+  .thumb--section .roman {
+    font-weight: 700; color: var(--bcl-oro-antico);
+    letter-spacing: 0.2em; font-size: 1.2em; margin: 0 0 1cqi;
+  }
+  .thumb--section .rigato {
+    width: 12cqi; height: 1.2cqi;
+    background-image: repeating-linear-gradient(
+      to right,
+      var(--bcl-nero-inchiostro) 0,
+      var(--bcl-nero-inchiostro) 0.4cqi,
+      transparent 0.4cqi,
+      transparent 1cqi);
+    margin: 0 0 18cqi;
+  }
+  .thumb--section .section-title {
+    font-family: var(--bcl-ff-heading);
+    font-weight: 300;
+    font-size: 4.8em;
+    line-height: 1.1;
+    color: var(--bcl-text);
+    margin: 0 0 1cqi;
+  }
+  .thumb--section .section-desc {
+    font-family: var(--bcl-ff-heading);
+    font-style: italic;
+    color: var(--bcl-text-muted);
+    font-size: 1.5em;
+  }
+
+  /* Two-column */
+  .thumb--two-col .cols {
+    display: grid;
+    grid-template-columns: 1fr 0.04fr 1fr;
+    gap: 0;
+    margin-top: 2cqi;
+  }
+  .thumb--two-col .col-eb {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--bcl-oro-antico);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 0 0 1.5cqi;
+  }
+  .thumb--two-col .col-body {
+    font-size: 1.65em;
+    line-height: 1.5;
+  }
+  .thumb--two-col .divider {
+    width: 1px;
+    background: var(--bcl-cenere);
+    opacity: 0.5;
+    justify-self: center;
+    height: 80%;
+    align-self: center;
+  }
+
+  /* KPI */
+  .thumb--kpi .kpis {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2cqi;
+    margin-top: 3cqi;
+  }
+  .thumb--kpi .kpi-label {
+    font-size: 1em;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--bcl-oro-antico);
+    text-transform: uppercase;
+  }
+  .thumb--kpi .kpi-num {
+    font-family: var(--bcl-ff-heading);
+    font-weight: 300;
+    font-size: 4.5em;
+    line-height: 1;
+    margin: 0.5cqi 0 0.3cqi;
+    color: var(--bcl-text);
+    letter-spacing: 0;
+  }
+  .thumb--kpi .kpi-delta {
+    font-weight: 700;
+    color: var(--bcl-oro-antico);
+    font-size: 1.3em;
+  }
+  .thumb--kpi .kpi-ctx {
+    font-style: italic;
+    color: var(--bcl-text-muted);
+    font-size: 1.1em;
+    margin-top: 0.5cqi;
+  }
+
+  /* Chart */
+  .thumb--chart .takeaway {
+    font-style: italic;
+    color: var(--bcl-text);
+    font-size: 1.45em;
+    margin: 0 0 3cqi;
+  }
+  .thumb--chart .bars {
+    display: flex;
+    gap: 2.5cqi;
+    align-items: flex-end;
+    height: 32cqi;
+    padding-bottom: 0;
+    border-bottom: 0.5px solid var(--bcl-cenere);
+    margin-top: 3cqi;
+  }
+  .thumb--chart .bar {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+  }
+  .thumb--chart .bar-fill {
+    width: 100%;
+    position: relative;
+    min-height: 1cqi;
+  }
+  .thumb--chart .bar-label {
+    position: absolute;
+    top: -3cqi;
+    width: 100%;
+    text-align: center;
+    font-family: var(--bcl-ff-data);
+    font-size: 1.1em;
+    color: var(--bcl-text);
+  }
+  .thumb--chart .bar-region {
+    text-align: center;
+    margin-top: 1cqi;
+    font-size: 0.95em;
+    color: var(--bcl-text-muted);
+  }
+
+  /* Pullquote */
+  .thumb--quote {
+    position: relative;
+  }
+  .thumb--quote .open-q {
+    font-family: var(--bcl-ff-heading);
+    font-style: italic;
+    color: var(--bcl-oro-antico);
+    font-size: 14em;
+    line-height: 0.7;
+    position: absolute;
+    top: 6cqi; left: 4cqi;
+  }
+  .thumb--quote .q-text {
+    font-family: var(--bcl-ff-heading);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 3.5em;
+    line-height: 1.25;
+    margin: 14cqi 0 0 12cqi;
+    max-width: 75%;
+  }
+  .thumb--quote .q-attr {
+    margin: 4cqi 0 0 24cqi;
+    font-family: var(--bcl-ff-body);
+    font-size: 1.05em;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--bcl-text-muted);
+  }
+
+  /* Timeline */
+  .thumb--timeline .tl-axis {
+    position: relative;
+    margin: 22cqi 4cqi 0;
+    height: 1px;
+    background: var(--bcl-oro-antico);
+  }
+  .thumb--timeline .tl-stop {
+    position: absolute;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  .thumb--timeline .tl-stop::before {
+    content: "";
+    position: absolute;
+    left: 50%; top: -1.5cqi;
+    transform: translateX(-50%);
+    width: 1px; height: 3cqi;
+    background: var(--bcl-oro-antico);
+  }
+  .thumb--timeline .tl-year {
+    font-family: var(--bcl-ff-heading);
+    font-size: 1.4em;
+    color: var(--bcl-text);
+    letter-spacing: 0.15em;
+    margin-top: 3cqi;
+  }
+  .thumb--timeline .tl-label {
+    position: absolute;
+    bottom: 2cqi;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22cqi;
+    text-align: center;
+    font-size: 1.15em;
+    color: var(--bcl-text-muted);
+    line-height: 1.25;
+  }
+
+  /* Grid of layout cards */
+  .layouts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 2.5rem 1.75rem;
+  }
+  .layout-card { display: flex; flex-direction: column; gap: 0; }
+
+  /* Color & type swatch panels */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+  .sw {
+    border: 1px solid rgba(26,26,26,0.08);
+    background: var(--bcl-avorio);
+    overflow: hidden;
+  }
+  .sw .chip {
+    height: 5rem;
+  }
+  .sw .meta {
+    padding: 0.75rem 0.9rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .sw .name {
+    font-family: var(--bcl-ff-heading);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+  .sw .hex {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.75rem;
+    color: var(--bcl-text-muted);
+  }
+  .sw .role {
+    font-size: 0.7rem;
+    color: var(--bcl-text-muted);
+    margin-top: 0.25rem;
+    font-style: italic;
+    line-height: 1.3;
+  }
+
+  /* Type specimen rows */
+  .type-row {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    align-items: baseline;
+    padding: 1.25rem 0;
+    border-bottom: 0.5px solid rgba(26,26,26,0.08);
+    gap: 1.5rem;
+  }
+  .type-row .label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bcl-oro-antico);
+    font-weight: 700;
+  }
+  .type-row .spec { display: flex; flex-direction: column; gap: 0.25rem; }
+  .type-row .specimen { color: var(--bcl-text); }
+  .type-row .detail { font-size: 0.75rem; color: var(--bcl-text-muted); letter-spacing: 0.02em; }
+  .specimen-display { font-family: var(--bcl-ff-display); font-size: 2.8rem; letter-spacing: 0.12em; font-weight: 300; text-transform: uppercase; }
+  .specimen-h1 { font-family: var(--bcl-ff-heading); font-size: 2.4rem; font-weight: 300; letter-spacing: 0.04em; }
+  .specimen-h2 { font-family: var(--bcl-ff-heading); font-size: 1.6rem; letter-spacing: 0.02em; }
+  .specimen-eyebrow { font-family: var(--bcl-ff-body); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bcl-oro-antico); }
+  .specimen-body { font-family: var(--bcl-ff-body); font-size: 1.1rem; }
+  .specimen-data { font-family: var(--bcl-ff-data); font-variant-numeric: tabular-nums; font-size: 1.6rem; }
+
+  /* Ornaments showcase */
+  .ornaments {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    align-items: end;
+  }
+  .ornament {
+    text-align: center;
+    padding: 2rem 1rem 1.25rem;
+    border: 1px solid rgba(26,26,26,0.08);
+    background: var(--bcl-avorio);
+  }
+  .ornament svg, .ornament img { margin: 0 auto; }
+  .ornament .name {
+    margin-top: 1.25rem;
+    font-family: var(--bcl-ff-heading);
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+  }
+  .ornament .role {
+    margin-top: 0.25rem;
+    font-size: 0.7rem;
+    color: var(--bcl-text-muted);
+    font-style: italic;
+    letter-spacing: 0.02em;
+  }
+
+  /* Footer */
+  footer.page-foot {
+    margin-top: 6rem;
+    padding-top: 2rem;
+    border-top: 0.5px solid rgba(26,26,26,0.12);
+    color: var(--bcl-text-tertiary);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  footer.page-foot a { color: var(--bcl-text-muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ── Masthead ─────────────────────────────────────────── -->
+  <header>
+    <p class="meta-eyebrow">Design system · v1.0.0</p>
+    <h1 class="meta-title">Buccellati Executive Presentation</h1>
+    <p class="meta-subtitle">A reusable design system for the Milanese
+      high-jewellery Maison — engineered so a CEO-level deliverable can
+      be produced by Claude, ChatGPT, or Gemini and stay unmistakably
+      Buccellati.</p>
+    <hr class="meta-rule">
+  </header>
+
+  <!-- ── Colour ───────────────────────────────────────────── -->
+  <p class="section-label">01 · Colour</p>
+  <h2 class="section-h">The palette</h2>
+  <p class="section-desc">A monochrome ivory-and-black backbone with one regal
+    blue and a warm matte gold. Saturated digital colour is the violation.</p>
+  <div class="swatches">
+    <div class="sw">
+      <div class="chip" style="background:#F5F1EA"></div>
+      <div class="meta">
+        <span class="name">Avorio</span><span class="hex">#F5F1EA</span>
+        <span class="role">Default slide background — never pure white</span>
+      </div>
+    </div>
+    <div class="sw">
+      <div class="chip" style="background:#1A1A1A"></div>
+      <div class="meta">
+        <span class="name" style="color:var(--bcl-text)">Nero Inchiostro</span><span class="hex">#1A1A1A</span>
+        <span class="role">Primary text — never pure black</span>
+      </div>
+    </div>
+    <div class="sw">
+      <div class="chip" style="background:#EAE2D2"></div>
+      <div class="meta">
+        <span class="name">Pergamena</span><span class="hex">#EAE2D2</span>
+        <span class="role">Section divider alternate</span>
+      </div>
+    </div>
+    <div class="sw">
+      <div class="chip" style="background:#1B2A4E"></div>
+      <div class="meta">
+        <span class="name">Blu Buccellati</span><span class="hex">#1B2A4E</span>
+        <span class="role">Cover · section · closing only</span>
+      </div>
+    </div>
+    <div class="sw">
+      <div class="chip" style="background:#A8894E"></div>
+      <div class="meta">
+        <span class="name">Oro Antico</span><span class="hex">#A8894E</span>
+        <span class="role">Hairlines, eyebrows, positive deltas</span>
+      </div>
+    </div>
+    <div class="sw">
+      <div class="chip" style="background:#C9A961"></div>
+      <div class="meta">
+        <span class="name">Oro Chiaro</span><span class="hex">#C9A961</span>
+        <span class="role">Highlight states, chart secondary</span>
+      </div>
+    </div>
+    <div class="sw">
+      <div class="chip" style="background:#4A4A48"></div>
+      <div class="meta">
+        <span class="name">Grafite</span><span class="hex">#4A4A48</span>
+        <span class="role">Secondary text · negative deltas</span>
+      </div>
+    </div>
+    <div class="sw">
+      <div class="chip" style="background:#8A8A86"></div>
+      <div class="meta">
+        <span class="name">Cenere</span><span class="hex">#8A8A86</span>
+        <span class="role">Tertiary text · axis labels · footers</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Typography ───────────────────────────────────────── -->
+  <p class="section-label">02 · Typography</p>
+  <h2 class="section-h">The type scale</h2>
+  <p class="section-desc">A low-contrast inscriptional serif for display and
+    headings, paired with a refined humanist sans-serif for body, and Georgia
+    tabular figures for data. Three fonts. No more.</p>
+
+  <div>
+    <div class="type-row">
+      <span class="label">Display · 54pt</span>
+      <div class="spec">
+        <span class="specimen specimen-display">Buccellati</span>
+        <span class="detail">Cormorant Garamond Light · +120 tracking · 1.10 leading</span>
+      </div>
+    </div>
+    <div class="type-row">
+      <span class="label">H1 · 40pt</span>
+      <div class="spec">
+        <span class="specimen specimen-h1">Heritage in the present tense</span>
+        <span class="detail">Garamond · +60 tracking · 1.15 leading</span>
+      </div>
+    </div>
+    <div class="type-row">
+      <span class="label">H2 · 28pt</span>
+      <div class="spec">
+        <span class="specimen specimen-h2">Macri remains the foundation of the wholesale ladder.</span>
+        <span class="detail">Garamond · +40 tracking · 1.20 leading · sentence case</span>
+      </div>
+    </div>
+    <div class="type-row">
+      <span class="label">Eyebrow · 9pt</span>
+      <div class="spec">
+        <span class="specimen specimen-eyebrow">FY26 — First Half</span>
+        <span class="detail">Gill Sans MT Bold · +200 tracking · UPPERCASE · Oro Antico</span>
+      </div>
+    </div>
+    <div class="type-row">
+      <span class="label">Body · 14pt</span>
+      <div class="spec">
+        <span class="specimen specimen-body">The Macri honeycomb is the Maison's most recognisable engraving and the entry point into Buccellati ownership for the largest share of new clients.</span>
+        <span class="detail">Gill Sans MT Regular · 1.40 leading · left-aligned, ragged right</span>
+      </div>
+    </div>
+    <div class="type-row">
+      <span class="label">Data · numerals</span>
+      <div class="spec">
+        <span class="specimen specimen-data">€&thinsp;512&thinsp;M  ·  67.4%  ·  ▲ 12.4pp</span>
+        <span class="detail">Georgia · tabular figures · right-aligned in tables</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Ornaments ────────────────────────────────────────── -->
+  <p class="section-label">03 · Motifs</p>
+  <h2 class="section-h">The proprietary ornaments</h2>
+  <p class="section-desc">Outline only, in Oro Antico, used as punctuation
+    marks — never as backgrounds. One per section, maximum.</p>
+  <div class="ornaments">
+    <div class="ornament">
+      <img src="../assets/svg/honeycomb-tulle.svg" width="140" alt="Honeycomb tulle">
+      <div class="name">Tulle</div>
+      <div class="role">honeycomb piercing</div>
+    </div>
+    <div class="ornament">
+      <img src="../assets/svg/rigato-rule.svg" width="220" alt="Rigato rule">
+      <div class="name">Rigato</div>
+      <div class="role">parallel hairlines, silk-like sheen</div>
+    </div>
+    <div class="ornament" style="background:var(--bcl-avorio)">
+      <img src="../assets/svg/b-monogram.svg" width="60" alt="B monogram">
+      <div class="name">B</div>
+      <div class="role">content slide footer mark</div>
+    </div>
+    <div class="ornament">
+      <img src="../assets/svg/since-1919.svg" width="220" alt="Since 1919">
+      <div class="name">Since 1919</div>
+      <div class="role">cover & closing only</div>
+    </div>
+  </div>
+
+  <!-- ── Slides ──────────────────────────────────────────── -->
+  <p class="section-label">04 · Layouts</p>
+  <h2 class="section-h">The sixteen slide masters</h2>
+  <p class="section-desc">Eight shown here — see <code>docs/04-layouts.md</code>
+    and <code>powerpoint/out/Buccellati_Sample.pptx</code> for the complete set.</p>
+
+  <div class="layouts-grid">
+
+    <!-- 01 Cover -->
+    <div class="layout-card">
+      <div class="slide-thumb thumb--cover">
+        <div class="slide-thumb__inner thumb--cover">
+          <div class="wordmark">BUCCELLATI</div>
+          <div class="cover-title">A strategic review for the next century</div>
+          <div class="cover-sub">FY26 EXECUTIVE BRIEFING</div>
+          <div class="cover-date">Milan  ·  May 2026</div>
+          <hr>
+        </div>
+      </div>
+      <p class="slide-thumb__caption"><strong>01</strong>Cover · title</p>
+    </div>
+
+    <!-- 02 Section -->
+    <div class="layout-card">
+      <div class="slide-thumb thumb--section">
+        <div class="slide-thumb__inner">
+          <p class="roman">I.</p>
+          <div class="rigato"></div>
+          <p class="section-title">Heritage in the present tense</p>
+          <p class="section-desc" style="margin:0">Six observations from the workshop floor.</p>
+        </div>
+      </div>
+      <p class="slide-thumb__caption"><strong>02</strong>Section divider</p>
+    </div>
+
+    <!-- 04 Statement -->
+    <div class="layout-card">
+      <div class="slide-thumb">
+        <div class="slide-thumb__inner">
+          <p class="thumb-eyebrow">Thesis</p>
+          <p class="thumb-title">Macri remains the foundation<br>of the wholesale ladder.</p>
+          <hr class="thumb-rule">
+          <p class="thumb-body" style="max-width:80%; margin-top:6cqi">
+            The Macri honeycomb is the Maison's most recognisable engraving
+            and the entry point into Buccellati ownership for the largest
+            share of new clients.
+          </p>
+          <div class="thumb-footer"><span>B  ·  slide 04 / 16</span><span>Confidential  ·  05.2026</span></div>
+        </div>
+      </div>
+      <p class="slide-thumb__caption"><strong>04</strong>Statement</p>
+    </div>
+
+    <!-- 05 Two-column -->
+    <div class="layout-card">
+      <div class="slide-thumb thumb--two-col">
+        <div class="slide-thumb__inner">
+          <p class="thumb-eyebrow">Boutique network</p>
+          <p class="thumb-title">Two truths, one decision.</p>
+          <hr class="thumb-rule">
+          <div class="cols">
+            <div>
+              <p class="col-eb">The fact</p>
+              <p class="col-body">Foot traffic in our top-ten boutiques was
+                up 8% in Q1 FY26, but conversion held flat.</p>
+            </div>
+            <div class="divider"></div>
+            <div>
+              <p class="col-eb">The implication</p>
+              <p class="col-body">Atelier-led storytelling at the bench
+                shifts the relationship from transaction to commission.</p>
+            </div>
+          </div>
+          <div class="thumb-footer"><span>B  ·  slide 05 / 16</span><span>Confidential  ·  05.2026</span></div>
+        </div>
+      </div>
+      <p class="slide-thumb__caption"><strong>05</strong>Two-column</p>
+    </div>
+
+    <!-- 09 KPI -->
+    <div class="layout-card">
+      <div class="slide-thumb thumb--kpi">
+        <div class="slide-thumb__inner">
+          <p class="thumb-eyebrow">FY26 — first half</p>
+          <p class="thumb-title">Where the Maison stands.</p>
+          <hr class="thumb-rule">
+          <div class="kpis">
+            <div>
+              <span class="kpi-label">Revenue</span>
+              <div class="kpi-num">€512M</div>
+              <div class="kpi-delta">▲ 12.4%</div>
+              <div class="kpi-ctx">vs first half FY25</div>
+            </div>
+            <div>
+              <span class="kpi-label">Retail share</span>
+              <div class="kpi-num">67%</div>
+              <div class="kpi-delta">▲ 3.1pp</div>
+              <div class="kpi-ctx">client-direct, all regions</div>
+            </div>
+            <div>
+              <span class="kpi-label">Headcount</span>
+              <div class="kpi-num">412</div>
+              <div class="kpi-delta">▲ 28</div>
+              <div class="kpi-ctx">of which 19 apprentices</div>
+            </div>
+          </div>
+          <div class="thumb-footer"><span>B  ·  slide 09 / 16</span><span>Confidential  ·  05.2026</span></div>
+        </div>
+      </div>
+      <p class="slide-thumb__caption"><strong>09</strong>KPI dashboard</p>
+    </div>
+
+    <!-- 10 Chart -->
+    <div class="layout-card">
+      <div class="slide-thumb thumb--chart">
+        <div class="slide-thumb__inner">
+          <p class="thumb-eyebrow">Revenue mix by region</p>
+          <p class="thumb-title">The Americas now lead.</p>
+          <p class="takeaway">Americas overtook EMEA in H1 FY26, driven by
+            New York and Beverly Hills boutiques.</p>
+          <div class="bars">
+            <div class="bar"><div class="bar-fill" style="background:#1B2A4E;height:85%"><span class="bar-label">34%</span></div><div class="bar-region">Americas</div></div>
+            <div class="bar"><div class="bar-fill" style="background:#A8894E;height:78%"><span class="bar-label">31%</span></div><div class="bar-region">EMEA</div></div>
+            <div class="bar"><div class="bar-fill" style="background:#4A4A48;height:55%"><span class="bar-label">22%</span></div><div class="bar-region">Asia-Pac</div></div>
+            <div class="bar"><div class="bar-fill" style="background:#8A8A86;height:20%"><span class="bar-label">8%</span></div><div class="bar-region">Japan</div></div>
+            <div class="bar"><div class="bar-fill" style="background:#C9A961;height:13%"><span class="bar-label">5%</span></div><div class="bar-region">Middle E.</div></div>
+          </div>
+          <div class="thumb-footer"><span>B  ·  slide 10 / 16</span><span>Confidential  ·  05.2026</span></div>
+        </div>
+      </div>
+      <p class="slide-thumb__caption"><strong>10</strong>Chart slide</p>
+    </div>
+
+    <!-- 12 Pullquote -->
+    <div class="layout-card">
+      <div class="slide-thumb thumb--quote">
+        <div class="slide-thumb__inner">
+          <span class="open-q">&ldquo;</span>
+          <p class="q-text">Engraving is the moment the metal listens.
+            If the hand is hurried, the gold knows.</p>
+          <p class="q-attr">— Andrea Buccellati, Honorary President</p>
+          <div class="thumb-footer"><span>B  ·  slide 12 / 16</span><span>Confidential  ·  05.2026</span></div>
+        </div>
+      </div>
+      <p class="slide-thumb__caption"><strong>12</strong>Pull-quote</p>
+    </div>
+
+    <!-- 14 Timeline -->
+    <div class="layout-card">
+      <div class="slide-thumb thumb--timeline">
+        <div class="slide-thumb__inner">
+          <p class="thumb-eyebrow">Heritage</p>
+          <p class="thumb-title">A century of openings.</p>
+          <hr class="thumb-rule">
+          <div class="tl-axis">
+            <div class="tl-stop" style="left:0%"><span class="tl-year">1919</span><span class="tl-label">Milan,<br>Via degli Orefici</span></div>
+            <div class="tl-stop" style="left:20%"><span class="tl-year">1925</span><span class="tl-label">Rome,<br>Via Condotti</span></div>
+            <div class="tl-stop" style="left:40%"><span class="tl-year">1929</span><span class="tl-label">Florence</span></div>
+            <div class="tl-stop" style="left:60%"><span class="tl-year">1951</span><span class="tl-label">First US boutique,<br>New York</span></div>
+            <div class="tl-stop" style="left:80%"><span class="tl-year">1979</span><span class="tl-label">Place Vendôme,<br>Paris</span></div>
+            <div class="tl-stop" style="left:100%"><span class="tl-year">2019</span><span class="tl-label">Centenary  ·<br>Richemont</span></div>
+          </div>
+          <div class="thumb-footer"><span>B  ·  slide 14 / 16</span><span>Confidential  ·  05.2026</span></div>
+        </div>
+      </div>
+      <p class="slide-thumb__caption"><strong>14</strong>Timeline</p>
+    </div>
+
+    <!-- 16 Closing -->
+    <div class="layout-card">
+      <div class="slide-thumb thumb--closing">
+        <div class="slide-thumb__inner thumb--closing">
+          <div class="wordmark">BUCCELLATI</div>
+          <div class="grazie">Grazie.</div>
+          <hr>
+        </div>
+      </div>
+      <p class="slide-thumb__caption"><strong>16</strong>Closing</p>
+    </div>
+  </div>
+
+  <!-- ── Footer ──────────────────────────────────────────── -->
+  <footer class="page-foot">
+    <span>Buccellati Executive Presentation Design System — v1.0.0</span>
+    <span>Single source of truth · <code>tokens/tokens.json</code></span>
+    <span>This preview · <code>examples/preview.html</code></span>
+  </footer>
+</div>
+</body>
+</html>

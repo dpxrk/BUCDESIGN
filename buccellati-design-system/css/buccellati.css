@@ -1,0 +1,265 @@
+/* ──────────────────────────────────────────────────────────────────────────
+   Buccellati Executive Presentation Design System
+   buccellati.css — production stylesheet for web previews & micro-sites
+   ────────────────────────────────────────────────────────────────────────── */
+
+@import url("./variables.css");
+
+/* ── Reset (minimal — never use heavy resets) ───────────────────────────── */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bcl-bg);
+  color: var(--bcl-text);
+  font-family: var(--bcl-ff-body);
+  font-size: var(--bcl-fs-body);
+  line-height: var(--bcl-lh-body);
+  font-weight: var(--bcl-fw-regular);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+/* ── Typography utilities ───────────────────────────────────────────────── */
+.bcl-display {
+  font-family: var(--bcl-ff-display);
+  font-size:   var(--bcl-fs-display);
+  font-weight: var(--bcl-fw-light);
+  line-height: var(--bcl-lh-tight);
+  letter-spacing: var(--bcl-ls-display);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.bcl-h1 {
+  font-family: var(--bcl-ff-heading);
+  font-size:   var(--bcl-fs-h1-section);
+  font-weight: var(--bcl-fw-light);
+  line-height: var(--bcl-lh-display);
+  letter-spacing: var(--bcl-ls-section);
+  margin: 0;
+}
+
+.bcl-h2 {
+  font-family: var(--bcl-ff-heading);
+  font-size:   var(--bcl-fs-h2-slide);
+  font-weight: var(--bcl-fw-regular);
+  line-height: var(--bcl-lh-snug);
+  letter-spacing: var(--bcl-ls-title);
+  margin: 0;
+}
+
+.bcl-eyebrow {
+  font-family: var(--bcl-ff-body);
+  font-size:   var(--bcl-fs-eyebrow);
+  font-weight: var(--bcl-fw-bold);
+  letter-spacing: var(--bcl-ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--bcl-accent);
+  margin: 0;
+}
+
+.bcl-body-l { font-size: var(--bcl-fs-body-l); }
+.bcl-body   { font-size: var(--bcl-fs-body);   }
+.bcl-body-s { font-size: var(--bcl-fs-body-s); }
+
+.bcl-caption {
+  font-size: var(--bcl-fs-caption);
+  letter-spacing: var(--bcl-ls-caption);
+  color: var(--bcl-text-tertiary);
+}
+
+.bcl-italic { font-style: italic; }
+
+.bcl-kpi-numeral {
+  font-family: var(--bcl-ff-heading);
+  font-size:   var(--bcl-fs-kpi);
+  font-weight: var(--bcl-fw-light);
+  line-height: var(--bcl-lh-tight);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.bcl-data {
+  font-family: var(--bcl-ff-data);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Theme blocks ───────────────────────────────────────────────────────── */
+.bcl-on-avorio    { background: var(--bcl-avorio);        color: var(--bcl-text); }
+.bcl-on-pergamena { background: var(--bcl-pergamena);     color: var(--bcl-text); }
+.bcl-on-blu       { background: var(--bcl-blu-buccellati);color: var(--bcl-text-on-dark); }
+
+.bcl-on-blu .bcl-eyebrow { color: var(--bcl-accent-soft); }
+
+/* ── Slide canvas (for web preview at 1:1 print proportions) ────────────── */
+.bcl-slide {
+  position: relative;
+  width:    var(--bcl-slide-w);
+  height:   var(--bcl-slide-h);
+  background: var(--bcl-bg);
+  padding:  var(--bcl-margin);
+  overflow: hidden;
+  /* Subtle paper texture (no decoration, just warmth) */
+  box-shadow: 0 0 0 1px rgba(26,26,26,0.04);
+}
+
+.bcl-slide__footer {
+  position: absolute;
+  left:     var(--bcl-margin);
+  right:    var(--bcl-margin);
+  bottom:   calc(var(--bcl-margin) - 0.25in);
+  display:  flex;
+  justify-content: space-between;
+  align-items: end;
+  font-size: 8pt;
+  color: var(--bcl-text-tertiary);
+  letter-spacing: 0.02em;
+}
+
+/* ── Rules & ornaments ──────────────────────────────────────────────────── */
+.bcl-rule {
+  border: 0;
+  height: 1pt;
+  background: var(--bcl-rule);
+  width: 1.5in;
+  margin: 0.18in 0;
+}
+
+.bcl-rule--hairline { height: 0.5pt; background: var(--bcl-cenere); }
+
+.bcl-rigato {
+  width:  1.5in;
+  height: 12pt;
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      var(--bcl-nero-inchiostro) 0,
+      var(--bcl-nero-inchiostro) 0.5pt,
+      transparent 0.5pt,
+      transparent 2.5pt
+    );
+}
+
+.bcl-honeycomb {
+  width:  1.5in;
+  height: 1.5in;
+  background: url("../assets/svg/honeycomb-tulle.svg") center / contain no-repeat;
+}
+.bcl-honeycomb--sm { width: 0.6in; height: 0.6in; }
+.bcl-honeycomb--xs { width: 0.4in; height: 0.4in; }
+
+/* ── Grid helpers ───────────────────────────────────────────────────────── */
+.bcl-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: var(--bcl-gutter);
+  row-gap: 0.18in;
+}
+
+.bcl-col-1-5  { grid-column: 1 / span 5;  }
+.bcl-col-1-6  { grid-column: 1 / span 6;  }
+.bcl-col-1-7  { grid-column: 1 / span 7;  }
+.bcl-col-7-12 { grid-column: 7 / span 6;  }
+.bcl-col-8-12 { grid-column: 8 / span 5;  }
+.bcl-col-1-4  { grid-column: 1 / span 4;  }
+.bcl-col-5-8  { grid-column: 5 / span 4;  }
+.bcl-col-9-12 { grid-column: 9 / span 4;  }
+
+/* ── Tables (executive style) ───────────────────────────────────────────── */
+.bcl-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11pt;
+}
+.bcl-table thead th {
+  background: var(--bcl-blu-buccellati);
+  color: var(--bcl-text-on-dark);
+  font-family: var(--bcl-ff-body);
+  font-weight: var(--bcl-fw-bold);
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.1em;
+  text-align: left;
+  padding: 0.4in 0.3in;
+  border-bottom: 1pt solid var(--bcl-oro-antico);
+}
+.bcl-table tbody td {
+  padding: 0.3in;
+  border-bottom: 0.5pt solid var(--bcl-cenere);
+}
+.bcl-table tbody td.bcl-num {
+  font-family: var(--bcl-ff-data);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.bcl-table tbody tr:nth-child(even) { background: rgba(217, 210, 195, 0.3); /* Lino 30% */ }
+.bcl-table tbody tr:last-child td   { border-bottom: 1pt solid var(--bcl-oro-antico); }
+
+/* ── Pull-quote ─────────────────────────────────────────────────────────── */
+.bcl-pullquote {
+  position: relative;
+  padding: 0.6in 1in;
+  max-width: 9in;
+}
+.bcl-pullquote::before {
+  content: "“";
+  position: absolute;
+  left: 0; top: -0.2in;
+  font-family: var(--bcl-ff-heading);
+  font-style: italic;
+  font-size: 120pt;
+  line-height: 1;
+  color: var(--bcl-oro-antico);
+}
+.bcl-pullquote__text {
+  font-family: var(--bcl-ff-heading);
+  font-style: italic;
+  font-weight: var(--bcl-fw-light);
+  font-size: 32pt;
+  line-height: 1.25;
+  margin: 0;
+}
+.bcl-pullquote__attribution {
+  display: block;
+  margin-top: 0.3in;
+  margin-left: 1in;
+  font-family: var(--bcl-ff-body);
+  font-size: 12pt;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.12em;
+  color: var(--bcl-text-muted);
+}
+
+/* ── KPI block ──────────────────────────────────────────────────────────── */
+.bcl-kpi {
+  display: grid;
+  gap: 0.12in;
+}
+.bcl-kpi__delta { font-family: var(--bcl-ff-body); font-weight: var(--bcl-fw-bold); font-size: 14pt; }
+.bcl-kpi__delta--positive { color: var(--bcl-positive); }
+.bcl-kpi__delta--negative { color: var(--bcl-negative); }
+.bcl-kpi__context { font-style: italic; color: var(--bcl-text-muted); font-size: 11pt; }
+
+/* ── Custom bullet (em-dash, gold) ──────────────────────────────────────── */
+.bcl-list { list-style: none; padding: 0; margin: 0; }
+.bcl-list li {
+  position: relative;
+  padding-left: 1.2em;
+  margin-bottom: 0.18in;
+}
+.bcl-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--bcl-oro-antico);
+}
+
+/* ── Accessibility helpers ──────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

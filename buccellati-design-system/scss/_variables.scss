@@ -1,0 +1,86 @@
+// ──────────────────────────────────────────────────────────────────────────
+// Buccellati Executive Presentation Design System
+// _variables.scss — Sass variables mirroring tokens.json
+// ──────────────────────────────────────────────────────────────────────────
+
+// ── Color · Primary ──────────────────────────────────────────────────────
+$bcl-avorio:           #F5F1EA;
+$bcl-nero-inchiostro:  #1A1A1A;
+$bcl-pergamena:        #EAE2D2;
+
+// ── Color · Accent ───────────────────────────────────────────────────────
+$bcl-blu-buccellati:   #1B2A4E;
+$bcl-oro-antico:       #A8894E;
+$bcl-oro-chiaro:       #C9A961;
+
+// ── Color · Neutral ──────────────────────────────────────────────────────
+$bcl-grafite:          #4A4A48;
+$bcl-cenere:           #8A8A86;
+$bcl-lino:             #D9D2C3;
+$bcl-polvere:          #BFB8A8;
+$bcl-blu-polvere:      #7A8BA8;
+
+// ── Color · Chart series (USE IN ORDER) ──────────────────────────────────
+$bcl-chart-series: (
+  $bcl-blu-buccellati,
+  $bcl-oro-antico,
+  $bcl-grafite,
+  $bcl-cenere,
+  $bcl-oro-chiaro,
+  $bcl-blu-polvere,
+);
+
+// ── Typography ───────────────────────────────────────────────────────────
+$bcl-ff-display: ("Trajan Pro", "Cormorant Garamond", Garamond, Georgia, serif);
+$bcl-ff-heading: ("Cormorant Garamond", Garamond, "Adobe Garamond Pro", Georgia, serif);
+$bcl-ff-body:    (Optima, "Gill Sans MT", "Gill Sans", "Calibri Light", sans-serif);
+$bcl-ff-data:    (Georgia, "Cormorant Infant", serif);
+
+$bcl-fs: (
+  display:    54pt,
+  h1-section: 40pt,
+  h2-slide:   28pt,
+  eyebrow:     9pt,
+  body-l:     16pt,
+  body:       14pt,
+  body-s:     12pt,
+  caption:     9pt,
+  kpi:        72pt,
+);
+
+$bcl-fw: (
+  light:    300,
+  regular:  400,
+  medium:   500,
+  bold:     700,
+);
+
+$bcl-lh: (
+  tight:    1.10,
+  display:  1.15,
+  snug:     1.20,
+  caption:  1.30,
+  body:     1.40,
+);
+
+$bcl-ls: (
+  eyebrow:  0.20em,
+  display:  0.12em,
+  section:  0.06em,
+  title:    0.04em,
+  caption:  0.02em,
+);
+
+// ── Layout ───────────────────────────────────────────────────────────────
+$bcl-slide-w: 13.333in;
+$bcl-slide-h: 7.5in;
+$bcl-margin:  0.6in;
+$bcl-col-w:   0.94in;
+$bcl-gutter:  0.18in;
+$bcl-live-w:  12.133in;
+$bcl-live-h:  6.3in;
+
+// ── Stroke ───────────────────────────────────────────────────────────────
+$bcl-stroke-hairline: 0.5pt;
+$bcl-stroke-rule:     1pt;
+$bcl-stroke-icon:     1.5pt;
